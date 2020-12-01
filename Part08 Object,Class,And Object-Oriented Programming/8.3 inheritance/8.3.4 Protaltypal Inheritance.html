@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型式继承</title>
+</head>
+<body>
+
+<script>
+    function object(o) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+    }
+
+    let person = {
+        name:'Nicolas',
+        friends:['ZhangSan','LiSi','WangWu']
+    }
+
+    let anotherPerson = object(person);
+    anotherPerson.name = 'Greg';
+    anotherPerson.friends.push('ZhaoLiu');
+
+    let yetAnotherPerson = object(person);
+    yetAnotherPerson.name = 'Linda';
+    yetAnotherPerson.friends.push('DingQi');
+
+    console.log(person.name);
+    console.log(person.friends);
+</script>
+</body>
+</html>

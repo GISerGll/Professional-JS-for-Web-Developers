@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function doAdd(num1, num2) {
+        arguments[1] = 10;
+        console.log(arguments[0] + num2);
+    }
+
+    doAdd(2);   //NaN num2 = undefined
+    doAdd(2,3); //12  num2 = 10
+</script>
+</body>
+</html>

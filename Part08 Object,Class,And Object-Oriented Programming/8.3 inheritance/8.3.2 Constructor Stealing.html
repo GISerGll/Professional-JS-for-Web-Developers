@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盗用构造函数</title>
+</head>
+<body>
+
+<script>
+    function SuperType() {
+        this.colors = ['red','blue','green'];
+    }
+
+    function SubType() {
+        SuperType.apply(this);
+    }
+
+    let instance = new SuperType();
+    instance.colors.push('black');
+    console.log(instance.colors);
+
+    let instance_ = new SubType();
+    console.log(instance_.colors);
+</script>
+</body>
+</html>

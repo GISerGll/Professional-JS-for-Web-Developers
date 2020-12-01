@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inheritance</title>
+</head>
+<body>
+
+<script>
+    //prototype chain
+    function SuperType() {
+        this.property = true;                          //attributes
+    }
+
+    SuperType.prototype.getSuperValue = function () {  //method
+        return this.property;
+    }
+
+    function SubType() {
+        this.subProperty = false;                       //attributes
+    }
+
+    SubType.prototype = new SuperType();
+
+    SubType.prototype.getSubValue = function () {        //method
+        return this.subProperty;
+    }
+    SubType.prototype.getSuperValue = function() {
+        return false;
+    }
+    // SubType.prototype.constructor = SubType;
+    let instance = new SubType();
+    console.log(instance.getSuperValue());
+    console.log(instance.constructor);
+    console.log()
+</script>
+</body>
+</html>
